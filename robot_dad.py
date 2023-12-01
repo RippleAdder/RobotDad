@@ -109,8 +109,6 @@ def main():
 
     try:
         while True:
-            
-
             pcm = recorder.read()
             result = porcupine.process(pcm)
 
