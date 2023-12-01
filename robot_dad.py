@@ -5,7 +5,11 @@ from elevenlabs import voices, generate, play, stream
 from openai import OpenAI
 from elevenlabs import set_api_key
 
-client = OpenAI(api_key="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")
+porcupine_key = os.environ.get("PORCUPINE_API_KEY")
+openai_key = os.environ.get("OPENAI_API_KEY")
+elevenlabs_key = os.environ.get("ELEVENLABS_API_KEY")
+
+client = OpenAI(api_key=openai_key)
 
 ENDPOINT_DURATION_SECONDS = 2 # 'Quiet' seconds indicating the end of audio capture
 VOICE = 'uQOBk31GP0vQaD1DiLi0' # Via Eleven Labs
@@ -45,9 +49,9 @@ PREV_CTX_TIMEOUT = 60 # seconds
 keyword_paths=['Robot-Dad.ppn']
 print(pvporcupine.KEYWORDS)
 
-porcupine_key = "SItVY9VYybEosgpe80sPySdd143L0DVD/uAky4GXaSk7WQjaskqt4g=="
 
-set_api_key("b7fd1c532a17f60a58f6e23b3855132f")
+
+set_api_key(elevenlabs_key)
 
 porcupine = pvporcupine.create(
     access_key=porcupine_key,
